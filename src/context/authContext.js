@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  
+  //Login User --> ref. login.js
   const login = (userData) => {
 
     setUser(userData);
@@ -23,8 +23,7 @@ const AuthProvider = ({ children }) => {
 
   };
 
-
-
+  //Logout User -->Button in Menu.js
   const logout = () => {
 
     setUser(null);
