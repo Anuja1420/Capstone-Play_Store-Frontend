@@ -1,12 +1,14 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import {useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import axios from 'axios';
-// import './login.css';
+import './login.css';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const formik = useFormik({
         enableReinitialize: true,
@@ -28,6 +30,7 @@ const Login = () => {
                         setStatus('success');
                         login(response.data); // Ensure this handles setting auth state
                         alert("User Logged in Successfully");
+                        navigate('/');
                     }
                 })
                 .catch(error => {
@@ -46,6 +49,7 @@ const Login = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <h1 className="h3 mb-3 fw-normal">Sign in</h1>
                     <div className="form-floating">
+                    <label htmlFor="username">User Name: </label>
                         <input
                             type="text"
                             className="form-control"
@@ -56,12 +60,13 @@ const Login = () => {
                             value={formik.values.username}
                             placeholder="User Name"
                         />
-                        <label htmlFor="username">User Name</label>
+                        {/* <label htmlFor="username">User Name</label> */}
                         {formik.touched.username && formik.errors.username && (
                             <div className='text-danger'>{formik.errors.username}</div>
                         )}
                     </div>
                     <div className="form-floating">
+                    <label htmlFor="floatingPassword">Password: </label>
                         <input
                             type="password"
                             className="form-control"
@@ -72,7 +77,7 @@ const Login = () => {
                             value={formik.values.password}
                             placeholder="Password"
                         />
-                        <label htmlFor="floatingPassword">Password</label>
+                        {/* <label htmlFor="floatingPassword">Password</label> */}
                         {formik.touched.password && formik.errors.password && (
                             <div className='text-danger'>{formik.errors.password}</div>
                         )}

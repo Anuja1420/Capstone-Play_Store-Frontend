@@ -1,9 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
+import Menu from './Components/menu';
 import Login from './Components/login';
 import Register from './Components/register';
-import Menu from './Components/menu';
+//import Menu from './Components/menu';
+import Footer from './Components/Footer';
+import Home from './Components/Home';
+// import About from './Components/About';
+import ApplicationList from './Components/listapplication';
+import CreateApplication from './Components/createapplication';
+import UpdateApplication from './Components/updateapplication';
+// import AddApplication from './Components/AddApplication';
+//import Login from './Components/login';
+//import Register from './Components/register';
 //import Logout from './Components/logout';
 
 const App = () => {
@@ -12,17 +22,22 @@ const App = () => {
       <Router>
       <div>
         <Menu/>
-        <h1>Welcome to Login/Registration Page</h1>
+        {/* <h1>Welcome Play Store</h1> */}
         
         <Routes>
-
+            <Route path="/" element={<Home />}/>
+            <Route path="/applications" element={<ApplicationList />}/>
+            <Route path='/createapplication' element={<CreateApplication/>}/>
+            <Route path='/updateapplication/:id' element={<UpdateApplication/>}/>
             <Route path="/register" element={<Register />} />
 
             <Route path="/login" element={<Login />} />
+            
 
             {/* Define other routes here */}
 
           </Routes>
+          <Footer/>
       </div>
       </Router>
     </AuthProvider>
