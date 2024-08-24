@@ -34,7 +34,7 @@ function CreateApplication() {
         }),
         onSubmit: (values) => {
             if (user && user.token) {
-                axios.post(`http://localhost:2001/application/createapp`, {
+                axios.post(`http://localhost:2001/application/applications/createapp`, {
                     ...values,
                     ownerId: user._id, // Assuming user._id holds the owner's ID
                 }, {
@@ -182,102 +182,3 @@ function CreateApplication() {
 
 export default CreateApplication;
 
-
-
-// import React, { useState, useContext } from 'react';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-// import { AuthContext } from "../context/authContext";
-
-// function CreateApplication() {
-//     const [application, setApplication] = useState({
-//         name: '',
-//         description: '',
-//         releaseDate: '',
-//         version: '',
-//         ratings: 0,
-//         genre: '',
-//         category: '',
-//         visibility: true,
-//         imageUrl: ''
-//     });
-
-//     const { user } = useContext(AuthContext);
-//     const navigate = useNavigate();
-
-//     const handleChange = (e) => {
-//         const { name, value, type, checked } = e.target;
-//         setApplication({
-//             ...application,
-//             [name]: type === 'checkbox' ? checked : value
-//         });
-//     };
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         if (user && user.token) {
-//             axios.post(`http://localhost:2001/application/createapp`, {
-//                 ...application,
-//                 ownerId: user._id, // Assuming user._id holds the owner's ID
-//             }, {
-//                 headers: {
-//                     Authorization: `Bearer ${user.token}`,
-//                 },
-//             })
-//             .then(response => {
-//                 console.log("Application created successfully", response.data);
-//                 navigate('/applications'); // Navigate to the list of applications after creation
-//             })
-//             .catch(error => {
-//                 console.error("There was an error creating the application!", error);
-//             });
-//         }
-//     };
-
-//     return (
-//         <div className="container">
-//             <h2 className="border-bottom pb-2 mb-4" style={{ fontWeight: 600, fontFamily: "monospace", marginTop: 40 }}>Create Application</h2>
-//             <form onSubmit={handleSubmit}>
-//                 <div className="mb-3">
-//                     <label className="form-label">Name</label>
-//                     <input type="text" className="form-control" name="name" value={application.name} onChange={handleChange} required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Description</label>
-//                     <textarea className="form-control" name="description" value={application.description} onChange={handleChange} required></textarea>
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Release Date</label>
-//                     <input type="date" className="form-control" name="releaseDate" value={application.releaseDate} onChange={handleChange} required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Version</label>
-//                     <input type="text" className="form-control" name="version" value={application.version} onChange={handleChange} required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Ratings</label>
-//                     <input type="number" className="form-control" name="ratings" value={application.ratings} onChange={handleChange} min="0" max="5" required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Genre</label>
-//                     <input type="text" className="form-control" name="genre" value={application.genre} onChange={handleChange} required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Category</label>
-//                     <input type="text" className="form-control" name="category" value={application.category} onChange={handleChange} required />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Image URL</label>
-//                     <input type="text" className="form-control" name="imageUrl" value={application.imageUrl} onChange={handleChange} required />
-//                 </div>
-//                 <div className="form-check mb-3">
-//                     <input type="checkbox" className="form-check-input" name="visibility" checked={application.visibility} onChange={handleChange} />
-//                     <label className="form-check-label">Visibility</label>
-//                 </div>
-//                 <button type="submit" className="btn btn-primary">Create Application</button>
-//             </form>
-//         </div>
-//     );
-// }
-
-// export default CreateApplication;

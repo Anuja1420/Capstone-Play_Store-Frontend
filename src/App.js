@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import Home from './Components/Home';
 // import About from './Components/About';
 import ApplicationList from './Components/listapplication';
+import WriteReview from './Components/writereview';
 import CreateApplication from './Components/createapplication';
 import UpdateApplication from './Components/updateapplication';
 // import AddApplication from './Components/AddApplication';
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/applications" element={<ApplicationList />}/>
+            <Route path="/writereview/:appId" element={<WriteReview />} />
             <Route path='/createapplication' element={<CreateApplication/>}/>
             <Route path='/updateapplication/:id' element={<UpdateApplication/>}/>
             <Route path="/register" element={<Register />} />

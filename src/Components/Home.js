@@ -14,10 +14,11 @@ function Home() {
   const fetchCategories = async () => {
     try {
       const response = await axios.get('http://localhost:2001/application/category');
-      const questions = response.data;
+      const application = response.data;
+      // console.log(application);
 
       const uniqueCategories = [
-        ...new Set(questions.map((application) => application.category)),
+        ...new Set(application.map((sample) => sample.category)),
       ];
 
       setCategories(uniqueCategories);
@@ -48,7 +49,7 @@ function Home() {
         <div className="row">
           {categories.map((category) => (
             <div className="col-md-4 mb-4" key={category}>
-              <div className="card" onClick={() => navigate(`/listquestions/${category}`)} style={{ cursor: 'pointer' }}>
+              <div className="card" onClick={() => navigate(`/listapplication/${category}`)} style={{ cursor: 'pointer' }}>
                 <div className="card-body">
                   <h5 className="card-title" style={{
                     background: 'linear-gradient(90deg, rgba(136, 45, 179, 1) 0%, rgba(237, 144, 250, 1) 100%)',
@@ -76,7 +77,9 @@ function Home() {
 }
 
 export default Home;
-// // import './Home.css';
+
+
+// import './Home.css';
 
 // function Home() {
 //   return (
