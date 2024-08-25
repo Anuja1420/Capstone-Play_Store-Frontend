@@ -58,11 +58,9 @@ function ListAllApplications() {
 
     const handleDownload = (appId) => {
         if (user && user.token) {
-            axios.post(`http://localhost:2001/download/applications/${appId}/download`, {}, {
-                headers: {
-                    Authorization: `Bearer ${user.token}`,
-                },
-            })
+            axios.post(`http://localhost:2001/download/applications/${appId}`, {}, 
+                
+            )
             .then(response => {
                 alert("Application downloaded successfully!");
             })
@@ -133,6 +131,7 @@ function ListAllApplications() {
                                         <li><strong>Ratings:</strong> {application.ratings}</li>
                                         <li><strong>Genre:</strong> {application.genre}</li>
                                         <li><strong>Category:</strong> {application.category}</li>
+                                        <li><strong>Total downloads:</strong> {application.downloadcount}</li>
                                         
                                     </ul>
                                 </div>

@@ -1,21 +1,54 @@
-.navbar {
-    background-color: #343a40; /* Dark background */
+/* .navbar {
+    background-color: #343a40; /* Dark background 
 }
 
 .navbar-nav .nav-item {
-    margin-right: 15px; /* Space between items */
+    margin-right: 15px; /* Space between items 
 }
 
 .btn-primary {
-    background-color: #007bff; /* Bootstrap primary color */
+    background-color: #007bff; /* Bootstrap primary color 
     border-color: #007bff;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3; /* Darker shade on hover 
     border-color: #004085;
 }
 
 .text-white {
-    color: #ffffff; /* White text color */
+    color: #ffffff; /* White text color 
+} */
+
+.container-fluid {
+    max-width: 1200px;
 }
+
+.navbar-brand img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.search-group input {
+    margin-right: 10px;
+}
+
+.filter-group .form-label {
+    margin-bottom: 0;
+    margin-right: 5px;
+}
+
+.filter-group select {
+    margin-right: 10px;
+}
+
+.filter-group button {
+    margin-left: 5px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

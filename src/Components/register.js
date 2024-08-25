@@ -41,7 +41,7 @@ const Register = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <h1 className="h3 mb-3 fw-normal">Register</h1>
 
-                    <div className="form-floating">
+                    <div className="form-group">
                         <label htmlFor="username">Username: </label>
                         <input
                             type="text"
@@ -58,7 +58,7 @@ const Register = () => {
                         ) : null}
                     </div>
 
-                    <div className="form-floating">
+                    <div className="form-group">
                         <label htmlFor="password">Password: </label>
                         <input
                             type="password"
@@ -75,7 +75,7 @@ const Register = () => {
                         ) : null}
                     </div>
 
-                    <div className="form-floating">
+                    <div className="form-group">
                         <label htmlFor="role">Role: </label>
                         <select
                             className="form-select"

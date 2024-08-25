@@ -57,7 +57,8 @@ function ShowReviews() {
                     reviews.map(review => (
                         <div className="list-group-item" key={review._id}>
                             <h5>{review.userId.name}</h5>
-                            <p>{review.review}</p>
+                            {/* <p>{review.review}</p> */}
+                            <p><strong>Review:</strong> {review.review}</p>
                             <p><strong>Rating:</strong> {review.rating}/5</p>
                             <small className="text-muted">Reviewed on: {new Date(review.createdAt).toLocaleDateString()}</small>
                         </div>
