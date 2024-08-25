@@ -63,22 +63,14 @@ function Menu() {
                                 <Link className="nav-link" to="/createapplication">Create Application</Link>
                             </li>
                         )}
+
+                        {user && user.role === 'admin' && (
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/fetchusers">View Users</Link>
+                            </li>
+                        )}
                     </ul>
-                    {/* <div className="d-flex">
-                        {user ? (
-                            <button className="btn btn-outline-light me-2" onClick={handleLogout}>Logout</button>
-                        ) : (
-                            <>
-                                <button className="btn btn-outline-light me-2" onClick={() => navigate('/login')}>Login</button>
-                                <button className="btn btn-outline-light" onClick={() => navigate('/register')}>Register</button>
-                            </>
-                        )}
-                        {user && (
-                            <div className="text-white ms-3">
-                                <h5>Hello {user.username}!</h5>
-                            </div>
-                        )}
-                    </div> */}
+                    
                 </div>
             </div>
             <div className="container mt-3">

@@ -73,41 +73,41 @@ function ListAllApplications() {
         }
     };
 
-    const handleSubmitReview = async (appId, reviewData) => {
-        try {
-            const response = await axios.post(`http://localhost:2001/review/reviews/${appId}/${user.id}`, reviewData, {
-                headers: { Authorization: `Bearer ${user.token}` }
-            });
+    // const handleSubmitReview = async (appId, reviewData) => {
+    //     try {
+    //         const response = await axios.post(`http://localhost:2001/review/reviews/${appId}/${user.id}`, reviewData, {
+    //             headers: { Authorization: `Bearer ${user.token}` }
+    //         });
     
-            if (response.status === 201) {
-                alert('Review submitted successfully!');
-                fetchReviews(appId);
-            }
-        } catch (error) {
-            console.error('Error submitting review:', error);
-            alert('Failed to submit review.');
-        }
-    };
+    //         if (response.status === 201) {
+    //             alert('Review submitted successfully!');
+    //             fetchReviews(appId);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error submitting review:', error);
+    //         alert('Failed to submit review.');
+    //     }
+    // };
     
-    const fetchReviews = async (appId,userId) => {
-        try {
-            const response = await axios.get(`http://localhost:2001/review/reviews/${appId}/${userId}`, {
-                headers: { Authorization: `Bearer ${user.token}` }
-            });
-            setReviews(response.data);
-        } catch (error) {
-            console.error('Error fetching reviews:', error);
-        }
-    };
+    // const fetchReviews = async (appId,userId) => {
+    //     try {
+    //         const response = await axios.get(`http://localhost:2001/review/reviews/${appId}/${userId}`, {
+    //             headers: { Authorization: `Bearer ${user.token}` }
+    //         });
+    //         setReviews(response.data);
+    //     } catch (error) {
+    //         console.error('Error fetching reviews:', error);
+    //     }
+    // };
 
-    const handleWriteReview = (appId) => {
-        // Logic to open a modal or navigate to a review form
-        console.log('Write a review for application:', appId);
-    };
+    // const handleWriteReview = (appId) => {
+    //     // Logic to open a modal or navigate to a review form
+    //     console.log('Write a review for application:', appId);
+    // };
 
-    if (!user) {
-        return <p>Please log in to view applications.</p>;
-    }
+    // if (!user) {
+    //     return <p>Please log in to view applications.</p>;
+    // }
 
     return (
         <div className="container">
@@ -141,16 +141,22 @@ function ListAllApplications() {
                                         <>
                                             <button className="btn btn-warning" onClick={() => { navigate(`/updateapplication/${application._id}`) }}>Update</button>
                                             <button className="btn btn-danger" onClick={() => handleDelete(application._id)}>Delete</button>
+                                            <button className="btn btn-info" onClick={() => { navigate(`/showreviews/${application._id}`) }}>Show Reviews</button>
                                         </>
                                     ) : null}
                                     {user && user.role === 'user' ? (
                                         <>
                                     <button className="btn btn-primary" onClick={() => handleDownload(application._id)}>Download</button>
-                                    {/* <button className="btn btn-secondary" onClick={() => handleWriteReview(application._id)}>Write Review</button> */}
+                
+                                    {/* <button className="btn btn-warning" onClick={() => { navigate(`/writereview/${application._id}`) }}>Write Review</button>
+                                    <button className="btn btn-info" onClick={() => { navigate(`/showreviews/${application._id}`) }}>Show Reviews</button> */}
+
                                     <button className="btn btn-warning" onClick={() => { navigate(`/writereview/${application._id}`) }}>Write Review</button>
+                                     <button className="btn btn-info" onClick={() => { navigate(`/showreviews/${application._id}`) }}>Show Reviews</button> 
                                         </>
                                 ) : null}
                                 </div>
+                                
                             </div>
                         </div>
                     ))

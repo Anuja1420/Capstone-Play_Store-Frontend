@@ -1,18 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 function SearchedItemsByName() {
     const [applications, setApplications] = useState([]);
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const name = query.get('name');
-
+    const { user } = useContext(AuthContext);
     useEffect(() => {
         const fetchApplications = async () => {
             try {
                 const response = await fetch(`http://localhost:2001/application/applications/appbyname/${name}`);
                 const data = await response.json();
-                setApplications(data);
+                if(user.role === "admin")
+                    {
+                        setApplications(data);
+                    }
+                    else
+                    {
+                        // Filter applications based on visibility for non-admin users
+                    const filteredApplications = data.filter(app => app.visibility === true);
+                    setApplications(filteredApplications);
+                    }
             } catch (error) {
                 console.error("Error fetching applications:", error);
             }

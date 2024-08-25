@@ -16,6 +16,8 @@ import UpdateApplication from './Components/updateapplication';
 import SearchedItemsByName from "./Components/searchitembyname";
 import SearchedItemsByRating from "./Components/searchitembyrating";
 import SearchedItemsByCategory from './Components/searchitembycategory';
+import FetchUser from './Components/fetchuser';
+import ShowReviews from './Components/showreviews';
 // import AddApplication from './Components/AddApplication';
 //import Login from './Components/login';
 //import Register from './Components/register';
@@ -42,6 +44,8 @@ const App = () => {
             <Route path="/searchitembyname" element={<SearchedItemsByName />} />
             <Route path="/searcheditemsbyrating" element={<SearchedItemsByRating />} />
             <Route path="/searchitembycategory" element={<SearchedItemsByCategory />} />
+            <Route path="/fetchusers" element={<FetchUser />} />
+            <Route path="/showreviews/:appId" element={<ShowReviews />} />
             
 
             {/* Define other routes here */}
