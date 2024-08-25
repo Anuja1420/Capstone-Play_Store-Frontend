@@ -15,6 +15,7 @@ import UpdateApplication from './Components/updateapplication';
 
 import SearchedItemsByName from "./Components/searchitembyname";
 import SearchedItemsByRating from "./Components/searchitembyrating";
+import SearchedItemsByCategory from './Components/searchitembycategory';
 // import AddApplication from './Components/AddApplication';
 //import Login from './Components/login';
 //import Register from './Components/register';
@@ -38,8 +39,9 @@ const App = () => {
 
             <Route path="/login" element={<Login />} />
 
-            <Route path="/listapplication/searcheditemsbyname" element={<SearchedItemsByName />} />
+            <Route path="/searchitembyname" element={<SearchedItemsByName />} />
             <Route path="/searcheditemsbyrating" element={<SearchedItemsByRating />} />
+            <Route path="/searchitembycategory" element={<SearchedItemsByCategory />} />
             
 
             {/* Define other routes here */}

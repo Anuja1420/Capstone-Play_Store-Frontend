@@ -17,7 +17,17 @@ function ListAllApplications() {
                 },
             })
             .then(response => {
-                setApplications(response.data);
+                if(user.role === "admin")
+                {
+                    setApplications(response.data);
+                }
+                else
+                {
+                    // Filter applications based on visibility for non-admin users
+                const filteredApplications = response.data.filter(app => app.visibility === true);
+                setApplications(filteredApplications);
+                }
+                
             })
             .catch(error => {
                 console.log("Error occurred when fetching the applications", error);
