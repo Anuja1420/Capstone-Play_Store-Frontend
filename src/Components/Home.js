@@ -1,77 +1,35 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-//import { AuthContext } from './context/authContext';
+// import './Home.css';
 
 function Home() {
-  const [categories, setCategories] = useState([]);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    try {
-      const response = await axios.get('http://localhost:2001/application/category');
-      const application = response.data;
-      // console.log(application);
-
-      const uniqueCategories = [
-        ...new Set(application.map((sample) => sample.category)),
-      ];
-
-      setCategories(uniqueCategories);
-    } catch (error) {
-      console.error('Error fetching categories', error);
-    }
-  };
-
   return (
     <>
-      <header style={{
-        position: 'relative',
-        padding: '20px 0',
-        background: 'linear-gradient(90deg, rgba(13, 100, 200, 5) 0%, rgba(237, 144, 250, 1) 100%)',
-        color: '#fff',
-        textAlign: 'center',
-        fontSize: '10px',
-        fontWeight: 'bold',
-        fontFamily: 'Arial, sans-serif',
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-        borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-      }}>
-        <h1>Get Your Everyday App</h1>
-      </header>
-
-      <div className="container my-5">
-        <div className="row">
-          {categories.map((category) => (
-            <div className="col-md-4 mb-4" key={category}>
-              <div className="card" onClick={() => navigate(`/listapplication/${category}`)} style={{ cursor: 'pointer' }}>
-                <div className="card-body">
-                  <h5 className="card-title" style={{
-                    background: 'linear-gradient(90deg, rgba(136, 45, 179, 1) 0%, rgba(237, 144, 250, 1) 100%)',
-                    color: '#fff',
-                    textAlign: 'center',
-                    padding: '20px 0',
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    fontFamily: 'Arial, sans-serif',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-                    borderRadius: '10px',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                  }}>
-                    {category}
-                  </h5>
-                  <p className="card-text">Explore applications related to {category}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://s.tmimgcdn.com/scr/1200x627/375900/skincare-amp-beauty-powerpoint-presentation-template_375906-original.jpg"height="600" class="d-block w-100" width = "1540" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://muffingroup.com/blog/wp-content/uploads/2021/09/Betheme-1.jpg" height="600" width = "1540" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://themeforest.img.customer.envatousercontent.com/files/242180176/03_preview.png?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=300&s=a48ecc77fe6203eb808bfcf4f287172c" height="600" width = "1540" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://s.tmimgcdn.com/scr/1200x750/354700/fashion-show-powerpoint-template_354745-original.jpg" height="600" width = "1540" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://media.slidesgo.com/storage/3702488/conversions/0-assistant-health-app-thumb.jpg" height="600" width = "1540" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
     </>
   );
 }
@@ -79,7 +37,26 @@ function Home() {
 export default Home;
 
 
-// import './Home.css';
+
+
+
+// import React from 'react';
+// // import './Home.css';
+
+// function Home() {
+//   return (
+//     <>
+    
+
+//  </>
+//   )
+// }
+// export default Home;
+
+
+
+
+// // import './Home.css';
 
 // function Home() {
 //   return (
@@ -94,7 +71,7 @@ export default Home;
 //       </div>
 
 //       <div className="container my-5">
-//         <h2 className="text-center mb-4">Explore Applications</h2>
+//         <h2 className="text-center mb-4">Get your favorite Applications</h2>
 //         <div className="row">
 //           {/* Image cards */}
 //           <div className="col-md-4">
