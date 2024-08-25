@@ -5,7 +5,7 @@ import { AuthContext } from "../context/authContext";
 
 function ListAllApplications() {
     const [applications, setApplications] = useState([]);
-    const [reviews, setReviews] = useState([]); // Added state for reviews
+    // const [reviews, setReviews] = useState([]); // Added state for reviews
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
@@ -71,41 +71,7 @@ function ListAllApplications() {
         }
     };
 
-    // const handleSubmitReview = async (appId, reviewData) => {
-    //     try {
-    //         const response = await axios.post(`http://localhost:2001/review/reviews/${appId}/${user.id}`, reviewData, {
-    //             headers: { Authorization: `Bearer ${user.token}` }
-    //         });
     
-    //         if (response.status === 201) {
-    //             alert('Review submitted successfully!');
-    //             fetchReviews(appId);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error submitting review:', error);
-    //         alert('Failed to submit review.');
-    //     }
-    // };
-    
-    // const fetchReviews = async (appId,userId) => {
-    //     try {
-    //         const response = await axios.get(`http://localhost:2001/review/reviews/${appId}/${userId}`, {
-    //             headers: { Authorization: `Bearer ${user.token}` }
-    //         });
-    //         setReviews(response.data);
-    //     } catch (error) {
-    //         console.error('Error fetching reviews:', error);
-    //     }
-    // };
-
-    // const handleWriteReview = (appId) => {
-    //     // Logic to open a modal or navigate to a review form
-    //     console.log('Write a review for application:', appId);
-    // };
-
-    // if (!user) {
-    //     return <p>Please log in to view applications.</p>;
-    // }
 
     return (
         <div className="container">

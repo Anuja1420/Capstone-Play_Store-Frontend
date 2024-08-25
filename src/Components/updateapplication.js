@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
@@ -25,8 +24,7 @@ function UpdateApplication() {
     });
 
     useEffect(() => {
-        // Fetch the application data
-        axios.get(`http://localhost:2001/application/getapp/${id}`, {
+        axios.get(`http://localhost:2001/application/getappbyappid/${id}`, { //Get prewritten data from app
             headers: {
                 Authorization: `Bearer ${user.token}`
             }
@@ -225,103 +223,4 @@ function UpdateApplication() {
 
 export default UpdateApplication;
 
-//----------------------------------------------------------------
 
-// import React, { useState, useContext } from 'react';
-// import axios from 'axios';
-// import { useFormik } from "formik";
-// import { useNavigate } from 'react-router-dom';
-// import { AuthContext } from "../context/authContext";
-
-// function UpdateApplication() {
-//     const [application, setApplication] = useState({
-//         name: '',
-//         description: '',
-//         releaseDate: '',
-//         version: '',
-//         ratings: 0,
-//         genre: '',
-//         category: '',
-//         visibility: true,
-//         imageUrl: ''
-//     });
-
-//     const { user } = useContext(AuthContext);
-//     const navigate = useNavigate();
-
-//     const handleChange = (e) => {
-//         const { name, value, type, checked } = e.target;
-//         setApplication({
-//             ...application,
-//             [name]: type === 'checkbox' ? checked : value
-//         });
-//     };
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         if (user && user.token) {
-//             axios.post(`http://localhost:2001/application/updateapp/appId/`, {
-//                 ...application,
-//                 ownerId: user._id, // Assuming user._id holds the owner's ID
-//             }, {
-//                 headers: {
-//                     Authorization: `Bearer ${user.token}`,
-//                 },
-//             })
-//             .then(response => {
-//                 console.log("Application Updated Successfully", response.data);
-//                 navigate('/applications'); // Navigate to the list of applications after creation
-//             })
-//             .catch(error => {
-//                 console.error("There was an error updating an application!", error);
-//             });
-//         }
-//     };
-
-//     return (
-//         <div className="container">
-//             <h2 className="border-bottom pb-2 mb-4" style={{ fontWeight: 600, fontFamily: "monospace", marginTop: 40 }}>Update Application</h2>
-//             <form onSubmit={handleSubmit}>
-//                 <div className="mb-3">
-//                     <label className="form-label">Name</label>
-//                     <input type="text" className="form-control" name="name" value={application.name} onChange={handleChange}  />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Description</label>
-//                     <textarea className="form-control" name="description" value={application.description} onChange={handleChange} ></textarea>
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Release Date</label>
-//                     <input type="date" className="form-control" name="releaseDate" value={application.releaseDate} onChange={handleChange}  />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Version</label>
-//                     <input type="text" className="form-control" name="version" value={application.version} onChange={handleChange} />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Ratings</label>
-//                     <input type="number" className="form-control" name="ratings" value={application.ratings} onChange={handleChange} min="0" max="5"  />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Genre</label>
-//                     <input type="text" className="form-control" name="genre" value={application.genre} onChange={handleChange}  />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Category</label>
-//                     <input type="text" className="form-control" name="category" value={application.category} onChange={handleChange}  />
-//                 </div>
-//                 <div className="mb-3">
-//                     <label className="form-label">Image URL</label>
-//                     <input type="text" className="form-control" name="imageUrl" value={application.imageUrl} onChange={handleChange}  />
-//                 </div>
-//                 <div className="form-check mb-3">
-//                     <input type="checkbox" className="form-check-input" name="visibility" checked={application.visibility} onChange={handleChange} />
-//                     <label className="form-check-label">Visibility</label>
-//                 </div>
-//                 <button type="submit" className="btn btn-primary">Update Application</button>
-//             </form>
-//         </div>
-//     );
-// }
-
-// export default UpdateApplication;
