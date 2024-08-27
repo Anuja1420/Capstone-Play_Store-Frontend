@@ -4,10 +4,8 @@ import { AuthProvider } from './context/authContext';
 import Menu from './Components/menu';
 import Login from './Components/login';
 import Register from './Components/register';
-//import Menu from './Components/menu';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
-// import About from './Components/About';
 import ApplicationList from './Components/listapplication';
 import WriteReview from './Components/writereview';
 import CreateApplication from './Components/createapplication';
@@ -18,10 +16,7 @@ import SearchedItemsByRating from "./Components/searchitembyrating";
 import SearchedItemsByCategory from './Components/searchitembycategory';
 import FetchUser from './Components/fetchuser';
 import ShowReviews from './Components/showreviews';
-// import AddApplication from './Components/AddApplication';
-//import Login from './Components/login';
-//import Register from './Components/register';
-//import Logout from './Components/logout';
+import Notification from './Components/notification';
 
 const App = () => {
   return (
@@ -29,7 +24,7 @@ const App = () => {
       <Router>
       <div>
         <Menu/>
-        {/* <h1>Welcome Play Store</h1> */}
+        {/* <h1>Welcome to Play Store</h1> */}
         
         <Routes>
             <Route path="/" element={<Home />}/>
@@ -46,9 +41,9 @@ const App = () => {
             <Route path="/searchitembycategory" element={<SearchedItemsByCategory />} />
             <Route path="/fetchusers" element={<FetchUser />} />
             <Route path="/showreviews/:appId" element={<ShowReviews />} />
-            
+            <Route path="/notification" element={<Notification />} />
 
-            {/* Define other routes here */}
+            
 
           </Routes>
           <Footer/>

@@ -1,25 +1,38 @@
-/* .navbar {
-    background-color: #343a40; /* Dark background 
+/* General Styling */
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1rem;
+    padding-right: 15px;
 }
 
-.navbar-nav .nav-item {
-    margin-right: 15px; /* Space between items 
+/* For search and filter groups on small screens */
+@media (max-width: 992px) {
+    .search-group, .filter-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-group input, 
+    .filter-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        width: 100%;
+        text-align: left;
+    }
 }
 
-.btn-primary {
-    background-color: #007bff; /* Bootstrap primary color 
-    border-color: #007bff;
-}
 
-.btn-primary:hover {
-    background-color: #0056b3; /* Darker shade on hover 
-    border-color: #004085;
-}
 
-.text-white {
-    color: #ffffff; /* White text color 
-} */
 
+/* 
 .container-fluid {
     max-width: 1200px;
 }
@@ -51,4 +64,4 @@
     align-items: center;
     justify-content: space-between;
 }
-
+ */
