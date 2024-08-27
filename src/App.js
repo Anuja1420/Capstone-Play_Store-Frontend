@@ -24,8 +24,7 @@ const App = () => {
       <Router>
       <div>
         <Menu/>
-        {/* <h1>Welcome to Play Store</h1> */}
-        
+                
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/applications" element={<ApplicationList />}/>
