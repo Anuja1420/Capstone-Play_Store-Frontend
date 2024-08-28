@@ -134,8 +134,8 @@ function SearchedItemsByCategory() {
                                                 <small className="text-muted">Reviewed on: {new Date(review.createdAt).toLocaleDateString()}</small>
                                     </div>
                     ))
-                ) : (
-                    <p>No reviews available.</p>
+                 ) : (
+                     <p>No reviews available.</p>
                 )}
             </div>
                                     {user && user.role === 'user' && (

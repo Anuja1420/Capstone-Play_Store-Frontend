@@ -12,6 +12,7 @@ function Menu() {
     const [searchTerm, setSearchTerm] = useState('');
     const [rating, setRating] = useState('');
     const [category, setCategory] = useState('');
+    
 
     const handleLogout = () => {
         logout();
@@ -31,6 +32,8 @@ function Menu() {
         }
     };
 
+    
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
             <div className="container-fluid d-flex align-items-center">
@@ -45,9 +48,10 @@ function Menu() {
                     />
                     Play Store
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
-                </button>
+                </button> */}
+
                 <div className="collapse navbar-collapse d-flex align-items-center" id="navbarNav">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">

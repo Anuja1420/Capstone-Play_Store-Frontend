@@ -56,6 +56,7 @@ function ListAllApplications() {
     };
 
 
+
     const handleDownload = (appId) => {
         if (user && user.token) {
             axios.post(`http://localhost:2001/download/applications/${appId}`, {}, )
@@ -67,7 +68,7 @@ function ListAllApplications() {
                     
                     recipient: user._id, // User is sending notification by downloading application
                     application: appId,
-                    message: `User ${user.username} has downloaded the application with ID ${appId}.`
+                    message: `User ${user.username} has downloaded the application with  ID ${appId}.`
                     
                 },)
                 .then(() => {
