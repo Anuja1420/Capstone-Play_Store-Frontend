@@ -15,7 +15,17 @@ function SearchedItemsByRating() {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const response = await fetch(`http://localhost:2001/application/getbyrating?ratings=${rating}`);
+                const response = await fetch(`http://localhost:2001/application/getbyrating?ratings=${rating}`,
+                    {
+
+                        headers: {
+        
+                            Authorization: `Bearer ${user.token}`,
+        
+                        },
+        
+                    });
+                // );
                 const data = await response.json();
                 if(user.role === "admin")
                     {

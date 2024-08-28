@@ -15,7 +15,17 @@ function SearchedItemsByCategory() {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const response = await fetch(`http://localhost:2001/application/getbycategory?category=${category}`);
+                const response = await fetch(`http://localhost:2001/application/getbycategory?category=${category}`,
+                    {
+
+                        headers: {
+        
+                            Authorization: `Bearer ${user.token}`,
+        
+                        },
+        
+                    });
+                // );
                 const data = await response.json();
                 
                 if (user.role === "admin") {
@@ -31,7 +41,7 @@ function SearchedItemsByCategory() {
         };
 
         fetchApplications();
-    }, [category, user.role]);
+    }, [category, user.role,user.token]);
 
     useEffect(() => {
         const fetchReviews = async (appId) => {

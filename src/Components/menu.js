@@ -56,11 +56,6 @@ function Menu() {
                             
                         </li>
                         
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/notification">
-                                <FontAwesomeIcon icon={faBell} />
-                            </Link>
-                        </li>
                         {user && user.role === 'admin' && (
                             <li className="nav-item">
                                 <Link className="nav-link" to="/createapplication">Create Application</Link>
@@ -71,6 +66,11 @@ function Menu() {
                                 <Link className="nav-link" to="/fetchusers">View Users</Link>
                             </li>
                         )}
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/notification">
+                                <FontAwesomeIcon icon={faBell} />
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

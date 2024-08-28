@@ -14,7 +14,17 @@ function SearchedItemsByName() {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const response = await fetch(`http://localhost:2001/application/applications/appbyname/${name}`);
+                const response = await fetch(`http://localhost:2001/application/applications/appbyname/${name}`,
+                    {
+
+                        headers: {
+        
+                            Authorization: `Bearer ${user.token}`,
+        
+                        },
+        
+                    });
+                
                 const data = await response.json();
                 if(user.role === "admin")
                     {
