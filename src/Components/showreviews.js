@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/authContext';
 
 function ShowReviews() {
-    const { appId } = useParams(); 
+    const { appId } = useParams(); // Get the appId from the URL
     const [reviews, setReviews] = useState([]);
     const [application, setApplication] = useState({});
     const { user } = useContext(AuthContext);
@@ -35,7 +35,7 @@ function ShowReviews() {
 
         fetchApplicationDetails();
         fetchReviews();
-    }, [appId, user.token]); 
+    }, [appId, user.token]); // Removed userId from dependencies
 
     return (
         <div className="container">
@@ -57,7 +57,7 @@ function ShowReviews() {
                 {reviews.length > 0 ? (
                     reviews.map(review => (
                         <div className="list-group-item" key={review._id}>
-                            <h5>{review.userId.name}</h5>
+                            
                             <p><strong>Review:</strong> {review.review}</p>
                             <p><strong>Rating:</strong> {review.rating}/5</p>
                             <small className="text-muted">Reviewed on: {new Date(review.createdAt).toLocaleDateString()}</small>

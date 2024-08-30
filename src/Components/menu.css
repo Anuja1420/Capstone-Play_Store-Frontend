@@ -1,31 +1,52 @@
-/* General Styling */
-.navbar .navbar-nav .nav-link {
-    color: #fff;
-    font-size: 1rem;
-    padding-right: 15px;
+.navbar {
+    padding: 0.5rem 1rem;
 }
 
-/* For search and filter groups on small screens */
+.navbar-brand img {
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    color: #fff;
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+}
+
+.search-group input {
+    border-radius: 20px;
+    padding-left: 15px;
+}
+
+.filter-group select {
+    border-radius: 20px;
+}
+
+.btn-primary {
+    border-radius: 20px;
+}
+
+.d-flex.align-items-center h5 {
+    margin: 0;
+    padding-left: 10px;
+    color: #fff;
+}
+
 @media (max-width: 992px) {
-    .search-group, .filter-group {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .search-group input, 
-    .filter-group select {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .navbar .navbar-nav {
+    .filter-group, .search-group, .d-flex.align-items-center {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .navbar .navbar-nav .nav-item {
-        width: 100%;
-        text-align: left;
+    .filter-group select, .search-group input {
+        margin-bottom: 0.5rem;
     }
 }
+
+
+
 

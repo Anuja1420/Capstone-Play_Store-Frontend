@@ -7,7 +7,7 @@ function WriteReview() {
     const [review, setReview] = useState('');
     const [rating, setRating] = useState(1);
     const navigate = useNavigate();
-    const { appId } = useParams(); // Removed userId from URL params
+    const { appId } = useParams(); 
     const { user } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {

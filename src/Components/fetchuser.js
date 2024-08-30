@@ -32,28 +32,7 @@ const FetchUser = ({ user }) => {
     
 };
 
-    // const handleDelete = (Id) => {
-    //         axios.delete(`http://localhost:2001/users/deleteuser/userId/${Id}`,
-    //             {
 
-    //                 headers: {
-    
-    //                     Authorization: `Bearer ${user.token}`,
-    
-    //                 }
-    
-    //             })
-            
-            
-    //         .then(response => {
-    //             console.log("Application deleted successfully", response.data);
-    //             setUsers(users.filter(user => user._id !== Id));
-    //         })
-    //         .catch(error => {
-    //             console.error("There was an error deleting the application!", error);
-    //         });
-        
-    // };
 
     return (
         <div>

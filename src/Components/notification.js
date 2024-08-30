@@ -4,7 +4,7 @@ import { AuthContext } from '../context/authContext';
 
 function Notifications() {
     const [notifications, setNotifications] = useState([]);
-    const { user } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
 
     useEffect(() => {
             axios.get('http://localhost:2001/notification/allnotifications', {
@@ -22,7 +22,7 @@ function Notifications() {
                         setNotifications(filteredApplications);
                     }
                 
-                //setNotifications(response.data);
+                
             })
             .catch(error => {
                 console.error("Error fetching notifications", error);

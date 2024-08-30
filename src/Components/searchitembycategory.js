@@ -20,7 +20,7 @@ function SearchedItemsByCategory() {
 
                         headers: {
         
-                            Authorization: `Bearer ${user.token}`,
+                            Authorization: `Bearer ${user.token}`, //User authentication
         
                         },
         
@@ -140,8 +140,8 @@ function SearchedItemsByCategory() {
             </div>
                                     {user && user.role === 'user' && (
                                         <div className="mt-3">
-                                            <button className="btn btn-primary" onClick={() => handleDownload(application._id)}>Download</button>
-                                            <button className="btn btn-warning" onClick={() => navigate(`/writereview/${application._id}`)}>Write Review</button>
+                                            <button className="btn btn-primary" style={{ marginRight: '18px' }}  onClick={() => handleDownload(application._id)}>Download</button>
+                                            <button className="btn btn-warning" style={{ marginRight: '18px' }}  onClick={() => navigate(`/writereview/${application._id}`)}>Write Review</button>
                                             <button className="btn btn-info" onClick={() => navigate(`/showreviews/${application._id}`)}>Show Reviews</button>
                                         </div>
                                     )}

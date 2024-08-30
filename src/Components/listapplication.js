@@ -12,7 +12,7 @@ function ListAllApplications() {
         if (user && user.token) {
             axios.get(`http://localhost:2001/application/getapp`, {
                 headers: {
-                    Authorization: `Bearer ${user.token}`,
+                    Authorization: `Bearer ${user.token}`, //User authentication
                 },
             })
             .then(response => {

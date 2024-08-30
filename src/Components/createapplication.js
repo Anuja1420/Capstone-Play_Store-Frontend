@@ -39,7 +39,7 @@ function CreateApplication() {
                     ownerId: user._id, // Assuming user._id holds the owner's ID
                 }, {
                     headers: {
-                        Authorization: `Bearer ${user.token}`,
+                        Authorization: `Bearer ${user.token}`, //User authentication
                     },
                 })
                 .then(response => {

@@ -61,7 +61,7 @@ const Login = () => {
                             value={formik.values.username}
                             placeholder="User Name"
                         />
-                        {/* <label htmlFor="username">User Name</label> */}
+                        
                         {formik.touched.username && formik.errors.username && (
                             <div className='text-danger'>{formik.errors.username}</div>
                         )}
@@ -78,7 +78,7 @@ const Login = () => {
                             value={formik.values.password}
                             placeholder="Password"
                         />
-                        {/* <label htmlFor="floatingPassword">Password</label> */}
+                        
                         {formik.touched.password && formik.errors.password && (
                             <div className='text-danger'>{formik.errors.password}</div>
                         )}
